@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 import argparse
-from src.util import sample, symb_from_msg, demodulate, pick_sf_b, generate_msg, compute_ser, compute_ber
+from util import sample, symb_from_msg, demodulate, pick_sf_b, generate_msg, compute_ser, compute_ber
 
 
 def compute_curve(sir, n_symbol=10):
