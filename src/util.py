@@ -38,6 +38,21 @@ def pick_sf_b():
     return sf1, bw1, sf2, bw2
 
 
+def pick_no_sf_b():
+    """
+    Generates non orthogonal pair of (SF, B)
+    :return: Two orthogonal (SF, B) pairs
+    """
+    while True:
+        sf1 = np.random.choice(SFACTORS, 1)[0]
+        sf2 = np.random.choice(SFACTORS, 1)[0]
+        bw1 = np.random.choice(BANDWIDTHS, 1)[0]
+        bw2 = np.random.choice(BANDWIDTHS, 1)[0]
+        if not is_orthogonal(sf1, bw1, sf2, bw2):
+            break
+    return sf1, bw1, sf2, bw2
+
+
 def prof_freq(B, SF, k, mu):
     """
     Returns the profile of the frequency of a single encoded symbol
@@ -234,7 +249,6 @@ def compute_ber(symbols, translated, sf1):
     Compute Bit Error Rate
     :param symbols: Expected message
     :param translated: Translated message
-    :param sf1: Spreading factor of translated message
     :return: Error rate
     """
     ber = 0
