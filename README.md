@@ -12,10 +12,14 @@ The table below shows which pairs are orthogonal or not (x marks non orthogonal 
 ![alt text](https://3.bp.blogspot.com/-qH-G97W5i7A/WHCFoWSzSRI/AAAAAAAAGsg/YE_foMWa6GQACRdwjXr9f-WDuBfCLDvLwCLcB/s1600/NonOrthogonal_Signals.png)
 
 # Test
-In order to generate a SIR/SER and SIR/BER curve, move to the src directory and run one of the following command:
+Install the requirements using
 ```
 pip3 install -r requirements.txt
+```
+In order to generate a SIR/SER and SIR/BER curve, move to the src directory and run one of the following command:
+```
 python main.py
+python main.py -i 100 -p 150 -s 15 # for longer simulations
 ```
 To generate the same curve for non orthogonal signals, run
 ```
