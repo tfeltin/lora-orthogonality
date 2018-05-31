@@ -216,6 +216,12 @@ def bit_dif(n1, n2):
 
 
 def compute_ser(symbols, translated):
+    """
+    Compute Symbol Error Rate
+    :param symbols: Expected message
+    :param translated: Translated message
+    :return: Error rate
+    """
     ser = 0
     for i in range(len(translated)):
         if translated[i] != symbols[i]:
@@ -223,9 +229,16 @@ def compute_ser(symbols, translated):
     return (len(translated) - ser) / len(translated)
 
 
-def compute_ber(symbols, translated):
+def compute_ber(symbols, translated, sf1):
+    """
+    Compute Bit Error Rate
+    :param symbols: Expected message
+    :param translated: Translated message
+    :param sf1: Spreading factor of translated message
+    :return: Error rate
+    """
     ber = 0
     for i in range(len(translated)):
         if translated[i] != symbols[i]:
             ber += bit_dif(translated[i], symbols[i])
-    return (len(translated) - ber) / len(translated)
+    return (sf1 * len(translated) - ber) / (sf1 * len(translated))
