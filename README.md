@@ -21,4 +21,4 @@ To generate the same curve for non orthogonal signals, run
 ```
 python main.py -no
 ```
-Generating the curves for the default settings usually takes around 20 minutes.
+Generating the curves for the default settings may take a few minutes.
