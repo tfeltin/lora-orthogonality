@@ -54,7 +54,7 @@ def main(args):
     print("Running...")
 
     # Points in dB for SIRs
-    X_dB = np.linspace(-3, 7, n_points, dtype=float)
+    X_dB = np.linspace(-50, 0, n_points, dtype=float)
     sir = 10 ** (X_dB / 10)
 
     sers = np.zeros(len(sir))
