@@ -23,7 +23,7 @@ def compute_curve(sir, n_symbol=10, non_orthogonal=False):
 
     for j in range(len(sir)):
         # Generate messages and demodulate message 1
-        msg = msg1 + sir[j] * msg2[:len(msg1)]
+        msg = np.sqrt(sir[j]) * msg1 + msg2[:len(msg1)]
         dem = sample(demodulate(msg, n_symbol, sf1, bw1), bw1)
         translated = symb_from_msg(dem, n_symbol, bw1, sf1)
         # Compute SER and BER
@@ -55,7 +55,7 @@ def main(args):
 
     # Points in dB for SIRs
     X_dB = np.linspace(-3, 7, n_points, dtype=float)
-    sir = np.sqrt(10 ** (X_dB - 1))
+    sir = 10 ** (X_dB / 10)
 
     sers = np.zeros(len(sir))
     bers = np.zeros(len(sir))
