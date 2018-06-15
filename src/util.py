@@ -241,7 +241,7 @@ def compute_ser(symbols, translated):
     for i in range(len(translated)):
         if translated[i] != symbols[i]:
             ser += 1
-    return (len(translated) - ser) / len(translated)
+    return ser / len(translated)
 
 
 def compute_ber(symbols, translated, sf1):
@@ -255,4 +255,4 @@ def compute_ber(symbols, translated, sf1):
     for i in range(len(translated)):
         if translated[i] != symbols[i]:
             ber += bit_dif(translated[i], symbols[i])
-    return (sf1 * len(translated) - ber) / (sf1 * len(translated))
+    return ber / (sf1 * len(translated))
